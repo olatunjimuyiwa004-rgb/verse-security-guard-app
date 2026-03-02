@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  
+  --color-verse-purple: #7B3FE4;
+  --color-verse-blue: #0052FF;
+  --color-verse-dark: #0A0B0D;
+  --color-verse-card: #141519;
+  --color-verse-border: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-verse-dark text-white font-sans antialiased;
+    background: radial-gradient(circle at top right, rgba(123, 63, 228, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(0, 82, 255, 0.1), transparent 40%),
+                #0A0B0D;
+    min-height: 100vh;
+  }
+}
+
+.verse-gradient-text {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-[#7B3FE4] to-[#0052FF];
+}
+
+.verse-card {
+  @apply bg-verse-card border border-verse-border rounded-2xl p-6 shadow-xl backdrop-blur-sm;
+}
+
+.verse-button-primary {
+  @apply bg-linear-to-r from-verse-purple to-verse-blue hover:opacity-90 transition-all duration-200 text-white font-semibold py-3 px-6 rounded-xl shadow-lg shadow-verse-purple/20 active:scale-95 disabled:opacity-50;
+}
+
+.verse-input {
+  @apply bg-black/40 border border-verse-border rounded-xl p-4 focus:border-verse-purple focus:ring-1 focus:ring-verse-purple outline-hidden transition-all text-white placeholder:text-gray-500;
+}
+
+.verse-badge {
+  @apply px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
+}
+
+.verse-badge-safe {
+  @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+}
+
+.verse-badge-alert {
+  @apply bg-rose-500/20 text-rose-400 border border-rose-500/30;
+}
+
+.verse-progress-bg {
+  @apply w-full bg-black/40 h-3 rounded-full overflow-hidden;
+}
+
+.verse-progress-fill {
+  @apply h-full transition-all duration-1000 ease-out rounded-full;
+}
